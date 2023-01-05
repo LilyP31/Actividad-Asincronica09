@@ -1,0 +1,31 @@
+<section class="container p-4 m-4 bg-light">
+<h2>Actividad Asincronica 09</h2>
+    <section>
+    <label>Ingresar primer valor: </label> 
+    <input [(ngModel)]="num1" type="number">
+    </section>
+    <p></p>
+    <section>
+    <label>Ingresar segundo valor: </label> 
+    <input [(ngModel)]="num2" type="number">
+    </section>
+    <p></p>
+<section>
+    <select [(ngModel)]="operacion">
+        <option value="ninguna">Sleccione una operacion</option>
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="multi">Multiplicar</option>
+        <option value="div">Dividir</option>
+    </select>
+</section>
+<p></p>
+<h3>Resultado</h3>
+<span [ngSwitch]="operacion">
+    <span *ngSwitchCase="'suma'" [ngStyle]="{'color': 'blue'}">{{ (num1 + num2) | number:'1.2-2' }}</span>
+    <span *ngSwitchCase="'resta'" [ngStyle]="{'color': 'orange'}">{{ (num1 - num2) | number:'1.2-2' }}</span>
+    <span *ngSwitchCase="'multi'" [ngStyle]="{'color': 'green'}">{{ (num1 * num2) | number:'1.2-2'}}</span>
+    <span *ngSwitchCase="'div'" [ngStyle]="{'color': '#7a16af'}">{{ (num1 / num2) | number:'1.2-2'}}</span>
+    <span *ngSwitchDefault [ngStyle]="{'color': 'red'}">(No selecciono ninguna operacion)</span>
+</span>
+</section>
